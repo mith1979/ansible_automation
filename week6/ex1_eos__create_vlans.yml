@@ -1,0 +1,17 @@
+---
+
+
+- name: Arista-Ansible Exercise1
+  hosts: arista
+
+  tasks:
+    - name: create VLANs 
+      eos_vlan: name={{ item.vlan_name }} vlanid={{ item.vlan_id }}
+            username={{ eapi_username }}
+            password={{ eapi_password }}
+            host={{ eapi_hostname }}
+            port={{ eapi_port }}
+            transport=https
+      with_items:
+        - {vlan_name: mb1, vlan_id: 333}
+        - {vlan_name: mb2, vlan_id: 334}

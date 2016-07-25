@@ -1,0 +1,12 @@
+---
+- hosts: local
+  tasks:
+    - name: Generate configuration file
+      template: src=/home/mbanerjee/week5/exercise1/ANSIBLE/src/access_switch.j2
+                  dest=/home/mbanerjee/week5/exercise1/ANSIBLE/dest/{{item.hostname}}.txt  
+      with_items:
+        - hostname: switch-1
+        - hostname: switch-2
+        - hostname: switch-3
+        - hostname: switch-4
+  

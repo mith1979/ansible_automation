@@ -1,0 +1,13 @@
+---
+- hosts: local
+  vars:
+    hostname: switch-1
+    secret: mithun
+    access_vlan: 10
+    ip_addr: 1.1.1.1 
+    default_gateway: 11.11.11.11
+    snmp_community: galileo
+  tasks:
+    - name: Generate configuration file
+      template: src=/home/mbanerjee/week5/exercise1/src/access_switch.j2
+                    dest=/home/mbanerjee/week5/exercise1/dest/test.txt  
